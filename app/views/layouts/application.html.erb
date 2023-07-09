@@ -8,9 +8,68 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <style>
+      #main_nav {
+        padding-bottom: 16px;
+      }
+
+      #main_nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      #main_nav li {
+        float: left;
+      }
+
+      #main_nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      #main_nav li a:hover {
+        background-color: #111;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      thead {
+        background-color: #222;
+        color: #eee;
+      }
+
+      tbody tr:hover {
+        background-color: #eee;
+      }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="app">
+      <nav id="main_nav">
+        <ul>
+          <li><%= link_to "Rooms", rooms_path %></li>
+          <li><%= link_to "People", people_path %></li>
+          <li><%= link_to "Transactions", transactions_path %></li>
+        </ul>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
