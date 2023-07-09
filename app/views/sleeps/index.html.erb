@@ -25,6 +25,16 @@
           <td><%= sleep.owed %></td>
         </tr>
       <% end %>
+      <tr style="background-color: #444; color: #eee">
+        <td></td>
+        <td>Totals</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= Sleep.all.sum(&:days) %></td>
+        <td><%= Sleep.all.sum(:price) %></td>
+        <td><%= Sleep.all.sum(&:owed) %></td>
+      </tr>
     </tbody>
   </table>
 <% else %>
