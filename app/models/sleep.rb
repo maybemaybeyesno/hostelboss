@@ -4,6 +4,10 @@ class Sleep < ApplicationRecord
   belongs_to :person
   belongs_to :room
 
+  def name
+    "[sleep] #{person.name} on #{start}"
+  end
+
   def days
     (self.end - self.start).to_i
   end
