@@ -1,0 +1,22 @@
+<% if Person.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th> 
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Person.all.each do |person| %>
+        <tr>
+          <td><%= person.id %></td>
+          <td><%= person.name %></td>
+          <td><%= person.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No people here! Use Rails console to add some.
+<% end %>
