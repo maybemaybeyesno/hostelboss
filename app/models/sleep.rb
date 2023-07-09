@@ -9,6 +9,6 @@ class Sleep < ApplicationRecord
   end
 
   def owed
-    price - balance
+    (price - balance).round(2)
   end
 end
