@@ -1,0 +1,32 @@
+<% if Sleep.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Person</th>
+        <th>Room</th> 
+        <th>Arrival</th>
+        <th>Leave</th>
+        <th>Days</th>
+        <th>Price</th>
+        <th>Owed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Sleep.all.each do |sleep| %>
+        <tr>
+          <td><%= sleep.id %></td>
+          <td><%= name_and_description(sleep.person) %></td>
+          <td><%= sleep.room.name %></td>
+          <td><%= sleep.start %></td>
+          <td><%= sleep.end %></td>
+          <td><%= sleep.days %></td>
+          <td><%= sleep.price %></td>
+          <td><%= sleep.owed %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No people here! Use Rails console to add some.
+<% end %>

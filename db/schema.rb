@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_09_191224) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_09_193304) do
   create_table "people", force: :cascade do |t|
     t.string "legal_name"
     t.string "friendly_name"
@@ -27,6 +27,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_191224) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sleeps", force: :cascade do |t|
+    t.integer "person_id", null: false
+    t.integer "room_id", null: false
+    t.date "start"
+    t.date "end"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_sleeps_on_person_id"
+    t.index ["room_id"], name: "index_sleeps_on_room_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.string "sender_type"
     t.integer "sender_id"
@@ -40,4 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_191224) do
     t.index ["sender_type", "sender_id"], name: "index_transactions_on_sender"
   end
 
+  add_foreign_key "sleeps", "people"
+  add_foreign_key "sleeps", "rooms"
 end
