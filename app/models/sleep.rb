@@ -1,5 +1,5 @@
 class Sleep < ApplicationRecord
-  include Financable
+  include Payable
 
   belongs_to :person
   belongs_to :room

@@ -1,4 +1,4 @@
-module Financable
+module Payable
   extend ActiveSupport::Concern
   
   included do

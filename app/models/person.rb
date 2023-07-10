@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
-  include Financable
+  include Payable
 
   has_many :sleeps
 
