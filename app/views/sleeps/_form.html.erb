@@ -1,0 +1,27 @@
+<% if @sleep.errors.present? %>
+  <%= @sleep.errors.to_json %>
+<% end %>
+
+<%= form_with model: @sleep do |form| %>
+  <p>
+    <%= form.label :person %>:
+    <%= form.select :person_id, Person.all.map { |person| [person.name, person.id]} %>
+  </p>
+  <p>
+    <%= form.label :room %>:
+    <%= form.select :room_id, Room.all.map { |room| [room.name, room.id]} %>
+  </p>
+  <p>
+    <%= form.label :start, "Check-in" %>:
+    <%= form.date_select :start %>
+  </p>
+  </p>
+    <%= form.label :start, "Check-out" %>:
+    <%= form.date_select :end %>
+  </p>
+  <p>
+    <%= form.label :price %>:
+    <%= form.number_field :price, step: 0.01 %>
+  </p>
+  <%= form.submit %>
+<% end %>

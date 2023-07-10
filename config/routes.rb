@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :people, only: [ :index, :new, :edit, :create, :update ]
   get 'transactions', to: 'transactions#index'
   resources :rooms, only: [ :index, :new, :edit, :create, :update ]
-  get 'sleeps', to: 'sleeps#index'
+  resources :sleeps, only: [ :index, :new, :edit, :create, :update ]
 end
