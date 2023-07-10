@@ -1,8 +1,8 @@
-<% if @transaction.errors.present? %>
-  <%= @transaction.errors.to_json %>
+<% if @payment.errors.present? %>
+  <%= @payment.errors.to_json %>
 <% end %>
 
-<%= form_with model: @transaction do |form| %>
+<%= form_with model: @payment do |form| %>
   <p>
     <%= form.label :sender %>:
     <%= form.select :sender_gid, Person.all.map { |person| [person.name, person.to_global_id]} %>

@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class Payment < ApplicationRecord
     belongs_to :sender, polymorphic: true
     belongs_to :receiver, polymorphic: true
     validates :sender, presence: true

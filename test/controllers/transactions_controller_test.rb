@@ -1,8 +1,8 @@
 require "test_helper"
 
-class TransactionsControllerTest < ActionDispatch::IntegrationTest
+class PaymentsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get transactions_index_url
+    get payments_index_url
     assert_response :success
   end
 end

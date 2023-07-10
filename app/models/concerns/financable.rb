@@ -2,16 +2,16 @@ module Financable
   extend ActiveSupport::Concern
   
   included do
-    has_many :outgoing_transactions, class_name: 'Transaction', as: :sender
-    has_many :incoming_transactions, class_name: 'Transaction', as: :receiver
+    has_many :outgoing_payments, class_name: 'Payment', as: :sender
+    has_many :incoming_payments, class_name: 'Payment', as: :receiver
   end
 
   def total_earned
-    incoming_transactions.sum(:amount)
+    incoming_payments.sum(:amount)
   end
 
   def total_spent
-    outgoing_transactions.sum(:amount)
+    outgoing_payments.sum(:amount)
   end
 
   def balance

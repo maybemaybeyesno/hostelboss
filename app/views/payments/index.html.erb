@@ -1,0 +1,32 @@
+<% if Payment.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Sent</th>
+        <th>Sender</th> 
+        <th>Receiver</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Payment.all.each do |payment| %>
+        <tr>
+          <td><%= payment.id %></td>
+          <td><%= payment.sent_at %></td>
+          <td><%= payment.sender.name %></td>
+          <td><%= payment.receiver.name %></td>
+          <td><%= payment.amount %>
+          <td>💪 <%= link_to "Edit", edit_payment_path(payment.id)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No payments here! Use Rails console to add some.
+<% end %>
+<br />
+<div style="float: right">
+  💸 <%= link_to "Add payment", new_payment_path %>
+</div>
