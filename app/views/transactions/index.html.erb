@@ -7,6 +7,7 @@
         <th>Sender</th> 
         <th>Receiver</th>
         <th>Amount</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,10 +18,15 @@
           <td><%= transaction.sender.name %></td>
           <td><%= transaction.receiver.name %></td>
           <td><%= transaction.amount %>
+          <td>💪 <%= link_to "Edit", edit_transaction_path(transaction.id)%></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  No people here! Use Rails console to add some.
+  No transactions here! Use Rails console to add some.
 <% end %>
+<br />
+<div style="float: right">
+  💸 <%= link_to "Add transaction", new_transaction_path %>
+</div>

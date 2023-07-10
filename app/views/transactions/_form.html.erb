@@ -1,0 +1,23 @@
+<% if @transaction.errors.present? %>
+  <%= @transaction.errors.to_json %>
+<% end %>
+
+<%= form_with model: @transaction do |form| %>
+  <p>
+    <%= form.label :sender %>:
+    <%= form.select :sender_gid, Person.all.map { |person| [person.name, person.to_global_id]} %>
+  </p>
+  <p>
+    <%= form.label :receiver %>:
+    <%= form.select :receiver_gid, Person.all.map { |person| [person.name, person.to_global_id]} %>
+  <p>
+  <p>
+    <%= form.label :sent_at %>:
+    <%= form.datetime_select :sent_at %>
+  </p>
+  <p>
+    <%= form.label :amount %>:
+    <%= form.number_field :amount, step: 0.01 %>
+  </p>
+  <%= form.submit %>
+<% end %>
