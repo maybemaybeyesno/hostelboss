@@ -5,6 +5,7 @@
         <th>#</th>
         <th>Name</th> 
         <th>Description</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
           <td><%= person.id %></td>
           <td><%= person.name %></td>
           <td><%= person.description %></td>
+          <td>🐧 <%= link_to "Edit", edit_person_path(person.id)%></td>
         </tr>
       <% end %>
     </tbody>
@@ -20,3 +22,7 @@
 <% else %>
   No people here! Use Rails console to add some.
 <% end %>
+<br />
+<div style="float: right">
+  💁 <%= link_to "Add new", new_person_path %>
+</div>

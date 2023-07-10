@@ -1,0 +1,17 @@
+<% if @person.errors.present? %>
+  <%= @person.errors.to_json %>
+<% end %>
+
+<%= form_with model: @person do |form| %>
+  <p>
+    <%= form.label :legal_name %>: <%= form.text_field :legal_name %>
+  </p>
+  <p>
+    <%= form.label :friendly_name %>: <%= form.text_field :friendly_name %>
+  </p>
+  <p>
+  <%= form.label :description %>: <br />
+    <%= form.text_area :description %>
+  </p>
+  <%= form.submit %>
+<% end %>
