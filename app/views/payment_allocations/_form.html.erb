@@ -5,7 +5,7 @@
 <%= form_with model: @payment_allocation do |form| %>
   <p>
     <%= form.label :service %>:
-    <%= form.select :service_gid, Sleep.all.map { |sleep| [ sleep.name, sleep.to_global_id ] } %>
+    <%= form.select :service_gid, Stay.all.map { |stay| [ stay.name, stay.to_global_id ] } %>
   </p>
   <p>
     <%= form.label :amount %>:

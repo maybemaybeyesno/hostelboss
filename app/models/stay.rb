@@ -1,4 +1,4 @@
-class Sleep < ApplicationRecord
+class Stay < ApplicationRecord
   include PaymentAllocatable
 
   belongs_to :person
@@ -9,7 +9,7 @@ class Sleep < ApplicationRecord
   validates :price, presence: true
 
   def name
-    "[sleep] #{person.name} on #{start}"
+    "[stay] #{person.name} on #{start}"
   end
 
   def days

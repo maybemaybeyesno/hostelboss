@@ -1,8 +1,8 @@
 require "test_helper"
 
-class SleepsControllerTest < ActionDispatch::IntegrationTest
+class StaysControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get sleeps_index_url
+    get stays_index_url
     assert_response :success
   end
 end

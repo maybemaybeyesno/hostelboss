@@ -1,8 +1,8 @@
-<% if @sleep.errors.present? %>
-  <%= @sleep.errors.to_json %>
+<% if @stay.errors.present? %>
+  <%= @stay.errors.to_json %>
 <% end %>
 
-<%= form_with model: @sleep do |form| %>
+<%= form_with model: @stay do |form| %>
   <p>
     <%= form.label :person %>:
     <%= form.select :person_id, Person.all.map { |person| [person.name, person.id]} %>

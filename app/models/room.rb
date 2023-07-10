@@ -1,3 +1,3 @@
 class Room < ApplicationRecord
-    has_many :sleeps
+    has_many :stays
 end

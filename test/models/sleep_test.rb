@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SleepTest < ActiveSupport::TestCase
+class StayTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

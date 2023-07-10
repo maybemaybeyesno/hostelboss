@@ -1,0 +1,52 @@
+<% if Stay.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Person</th>
+        <th>Room</th> 
+        <th>Arrival</th>
+        <th>Leave</th>
+        <th>Days</th>
+        <th>Price</th>
+        <th>Paid</th>
+        <th>Owed</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Stay.all.each do |stay| %>
+        <tr>
+          <td><%= stay.id %></td>
+          <td><%= name_and_description(stay.person) %></td>
+          <td><%= stay.room.name %></td>
+          <td><%= stay.start %></td>
+          <td><%= stay.end %></td>
+          <td><%= stay.days %></td>
+          <td><%= stay.price %></td>
+          <td><%= stay.total_allocated %></td>
+          <td><%= stay.owed %></td>
+          <td>👠 <%= link_to "Edit", edit_stay_path(stay.id)%></td>
+        </tr>
+      <% end %>
+      <tr style="background-color: #444; color: #eee">
+        <td></td>
+        <td>Totals</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= Stay.all.sum(&:days) %></td>
+        <td><%= Stay.all.sum(:price) %></td>
+        <td><%= Stay.all.sum(&:total_allocated) %>
+        <td><%= Stay.all.sum(&:owed) %></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  No stays here! Use Rails console to add some.
+<% end %>
+<br />
+<div style="float: right">
+  💤 <%= link_to "Add stay", new_stay_path %>
+</div>
