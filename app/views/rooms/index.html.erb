@@ -6,6 +6,7 @@
         <th>Name</th> 
         <th>Description</th>
         <th>Beds</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
           <td><%= room.name %></td>
           <td><%= room.description %></td>
           <td><%= room.beds %></td>
+          <td>👠 <%= link_to "Edit", edit_room_path(room.id)%></td>
         </tr>
       <% end %>
     </tbody>
@@ -22,3 +24,7 @@
 <% else %>
   No rooms here! Use Rails console to add some.
 <% end %>
+<br />
+<div style="float: right">
+  📐 <%= link_to "Add room", new_person_path %>
+</div>
