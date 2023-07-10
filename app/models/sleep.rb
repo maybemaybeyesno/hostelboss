@@ -1,5 +1,5 @@
 class Sleep < ApplicationRecord
-  include Payable
+  include PaymentAllocatable
 
   belongs_to :person
   belongs_to :room
@@ -17,6 +17,6 @@ class Sleep < ApplicationRecord
   end
 
   def owed
-    (price - balance).round(2)
+    (price - total_allocated).round(2)
   end
 end

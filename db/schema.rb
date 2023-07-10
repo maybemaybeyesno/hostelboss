@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_101900) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_103919) do
+  create_table "payment_allocations", force: :cascade do |t|
+    t.integer "payment_id", null: false
+    t.string "service_type", null: false
+    t.integer "service_id", null: false
+    t.float "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_id"], name: "index_payment_allocations_on_payment_id"
+    t.index ["service_type", "service_id"], name: "index_payment_allocations_on_service"
+  end
+
   create_table "payments", force: :cascade do |t|
     t.string "sender_type"
     t.integer "sender_id"
@@ -52,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_101900) do
     t.index ["room_id"], name: "index_sleeps_on_room_id"
   end
 
+  add_foreign_key "payment_allocations", "payments"
   add_foreign_key "sleeps", "people"
   add_foreign_key "sleeps", "rooms"
 end

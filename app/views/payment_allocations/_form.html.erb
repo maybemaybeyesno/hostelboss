@@ -1,0 +1,15 @@
+<% if @payment_allocation.errors.present? %>
+  <%= @payment_allocation.errors.to_json %>
+<% end %>
+
+<%= form_with model: @payment_allocation do |form| %>
+  <p>
+    <%= form.label :service %>:
+    <%= form.select :service_gid, Sleep.all.map { |sleep| [ sleep.name, sleep.to_global_id ] } %>
+  </p>
+  <p>
+    <%= form.label :amount %>:
+    <%= form.number_field :amount, step: 0.01 %>
+  </p>
+  <%= form.submit %>
+<% end %>

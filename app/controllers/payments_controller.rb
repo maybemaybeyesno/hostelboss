@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
   end
-
+  
   def edit
     @payment = Payment.find(params[:id])
   end

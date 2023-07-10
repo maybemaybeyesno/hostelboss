@@ -1,0 +1,30 @@
+<% if @payment_allocations.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Payment</th>
+        <th>Service</th> 
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @payment_allocations.all.each do |payment_allocation| %>
+        <tr>
+          <td><%= payment_allocation.id %></td>
+          <td><%= @payment.id %></td>
+          <td><%= payment_allocation.service.name %></td>
+          <td><%= payment_allocation.amount %></td>
+          <td>💪 <%= link_to "Edit", edit_payment_allocation_path(@payment.id, payment_allocation.id)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No payment allocations here! Use Rails console to add some.
+<% end %>
+<br />
+<div style="float: right">
+  💸 <%= link_to "Add payment allocation", new_payment_allocation_path %>
+</div>

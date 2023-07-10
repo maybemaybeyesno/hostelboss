@@ -7,6 +7,7 @@
         <th>Sender</th> 
         <th>Receiver</th>
         <th>Amount</th>
+        <th>Unallocated</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -17,8 +18,14 @@
           <td><%= payment.sent_at %></td>
           <td><%= payment.sender.name %></td>
           <td><%= payment.receiver.name %></td>
-          <td><%= payment.amount %>
-          <td>💪 <%= link_to "Edit", edit_payment_path(payment.id)%></td>
+          <td><%= payment.amount %></td>
+          <td><%= payment.unallocated %></td>
+          <td>
+            <ul>
+              <li>🔎 <%= link_to "Allocations", payment_allocations_path(payment.id) %></li>
+              <li>💪 <%= link_to "Edit", edit_payment_path(payment.id)%></li>
+            </ul>
+            </td>
         </tr>
       <% end %>
     </tbody>
