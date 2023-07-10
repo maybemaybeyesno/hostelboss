@@ -5,6 +5,9 @@
         <th>#</th>
         <th>Name</th> 
         <th>Description</th>
+        <th>Total received</th>
+        <th>Total given</th>
+        <th>Balance</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -14,6 +17,9 @@
           <td><%= person.id %></td>
           <td><%= person.name %></td>
           <td><%= person.description %></td>
+          <td><%= person.total_earned %></td>
+          <td><%= person.total_spent %></td>
+          <td><%= person.balance %></td>
           <td>🐧 <%= link_to "Edit", edit_person_path(person.id)%></td>
         </tr>
       <% end %>

@@ -9,6 +9,7 @@
         <th>Leave</th>
         <th>Days</th>
         <th>Price</th>
+        <th>Paid</th>
         <th>Owed</th>
         <th>Actions</th>
       </tr>
@@ -23,6 +24,7 @@
           <td><%= sleep.end %></td>
           <td><%= sleep.days %></td>
           <td><%= sleep.price %></td>
+          <td><%= sleep.total_earned %></td>
           <td><%= sleep.owed %></td>
           <td>👠 <%= link_to "Edit", edit_sleep_path(sleep.id)%></td>
         </tr>
@@ -35,6 +37,7 @@
         <td></td>
         <td><%= Sleep.all.sum(&:days) %></td>
         <td><%= Sleep.all.sum(:price) %></td>
+        <td><%= Sleep.all.sum(&:total_earned) %>
         <td><%= Sleep.all.sum(&:owed) %></td>
         <td></td>
       </tr>
