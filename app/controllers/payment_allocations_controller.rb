@@ -31,7 +31,7 @@ class PaymentAllocationsController < ApplicationController
     @payment_allocation = PaymentAllocation.find(params[:id])
     @payment_allocation.payment = @payment
     if @payment_allocation.update(payment_allocation_params)
-      redirect_to payments_allocations_path(@payment.id)
+      redirect_to payment_allocations_path(@payment.id)
     else
       render :edit, status: :unprocessable_entity
     end
