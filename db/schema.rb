@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_063950) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_19_043236) do
   create_table "payment_allocations", force: :cascade do |t|
     t.integer "payment_id", null: false
     t.string "service_type", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_063950) do
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comments"
     t.index ["receiver_type", "receiver_id"], name: "index_transactions_on_receiver"
     t.index ["sender_type", "sender_id"], name: "index_transactions_on_sender"
   end

@@ -31,6 +31,10 @@ class PaymentsController < ApplicationController
 
   private
   def payment_params
-    params.require(:payment).permit(:sender_gid, :receiver_gid, :sent_at, :amount )
+    params.require(:payment).permit(
+      :sender_gid, :receiver_gid,
+      :sent_at, :amount,
+      :comments
+    )
   end
 end

@@ -19,5 +19,9 @@
     <%= form.label :amount %>:
     <%= form.number_field :amount, step: 0.01 %>
   </p>
+  <p>
+    <%= form.label :comments %>:
+    <%= form.text_area :comments %>
+  </p>
   <%= form.submit %>
 <% end %>
