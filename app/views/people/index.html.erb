@@ -19,7 +19,7 @@
           <td><%= person.description %></td>
           <td><%= person.total_earned %></td>
           <td><%= person.total_spent %></td>
-          <td><%= person.balance %></td>
+          <td><%= person.balance.round(2) %></td>
           <td>🐧 <%= link_to "Edit", edit_person_path(person.id)%></td>
         </tr>
       <% end %>
