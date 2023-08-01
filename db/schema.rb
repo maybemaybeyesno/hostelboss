@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_19_043236) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_01_152049) do
   create_table "payment_allocations", force: :cascade do |t|
     t.integer "payment_id", null: false
     t.string "service_type", null: false
@@ -63,6 +63,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_043236) do
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_stays_on_person_id"
     t.index ["room_id"], name: "index_stays_on_room_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "payment_allocations", "payments"
