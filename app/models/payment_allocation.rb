@@ -3,7 +3,7 @@ class PaymentAllocation < ApplicationRecord
   belongs_to :service, polymorphic: true
   validates :payment, presence: true
   validates :service, presence: true
-  validates :amount, presence: true, numericality: { greater_than: 0 }
+  validates :amount, presence: true
 
   def service_gid
     self.service.to_global_id if self.service.present?
